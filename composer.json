@@ -22,7 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ritvarsz\\LaravelXhgui\\XhguiServiceProvider"
+                "Ritvarsz\\LaravelXhgui\\XHGuiServiceProvider"
             ]
         }
     }
