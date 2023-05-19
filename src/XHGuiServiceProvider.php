@@ -6,7 +6,7 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use Ritvarsz\LaravelXhgui\XHGuiMiddleware;
 
-class XHProfServiceProvider extends ServiceProvider
+class XHGuiServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any package services.
