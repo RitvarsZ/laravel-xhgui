@@ -1,0 +1,28 @@
+{
+    "name": "ritvarsz/laravel-xhgui",
+    "description": "Send profiling data to xhgui from a Laravel app",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ritvars Zvejnieks",
+            "email": "ritvars.zvejnieks@applyit.lv"
+        }
+    ],
+    "require": {
+        "perftools/php-profiler": "^1.1",
+        "laravel/framework": ">=7.0",
+        "php": ">=7.2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ritvarsz\\LaravelXhgui\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ritvarsz\\LaravelXhgui\\XhguiServiceProvider"
+            ]
+        }
+    }
+}
