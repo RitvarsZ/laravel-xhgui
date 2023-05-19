@@ -1,6 +1,6 @@
 # Laravel XHGui
 
-Small app to quickly configure a Laravel app to send profiling results to XHGui.
+Small package to quickly configure a Laravel app to send profiling results to XHGui.
 - [perftools/php-profiler](https://github.com/perftools/php-profiler)
 - [perftools/xhgui](https://github.com/perftools/xhgui)
 
