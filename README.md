@@ -4,7 +4,7 @@ Small package to quickly configure a Laravel app to send profiling results to XH
 - [perftools/php-profiler](https://github.com/perftools/php-profiler)
 - [perftools/xhgui](https://github.com/perftools/xhgui)
 
-The package adds a global middleware that creates and starts a XHGui Profiler.
+The package adds a global middleware that starts php-profiler.
 
 ## Installation
 ```bash
