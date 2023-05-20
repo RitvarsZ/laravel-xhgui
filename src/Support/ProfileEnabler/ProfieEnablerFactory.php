@@ -18,7 +18,7 @@ class ProfileEnablerFactory
 
     protected static function getProfileEnablerClass()
     {
-        return config('xhgui.profiler.enable');
+        return config('xhgui')['profiler.enable'];
     }
 
     protected static function guardAgainstInvalidProfileEnabler(string $profileEnablerClass): void

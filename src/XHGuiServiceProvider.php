@@ -19,7 +19,7 @@ class XHGuiServiceProvider extends ServiceProvider
             $this->publishes([__DIR__ . '/../config/xhgui.php' => config_path('xhgui.php')], 'xhgui-config');
         }
 
-        if (!config('xhgui.global.enabled')) {
+        if (!config('xhgui.enabled')) {
             return;
         }
 

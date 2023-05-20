@@ -21,7 +21,7 @@ class SimpleUrlFactory
      */
     protected static function getSimpleUrlClass()
     {
-        return config('xhgui.profiler.simple_url');
+        return config('xhgui')['profiler.simple_url'];
     }
 
     protected static function guardAgainstInvalidSimpleUrlClass(string $simpleUrlClass): void

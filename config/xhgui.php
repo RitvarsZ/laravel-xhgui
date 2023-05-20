@@ -3,9 +3,11 @@
 return [
     // Enable or disable the middleware. Useful for enabling via .env file.
     // If set to false, the global middleware that starts the profiler will not be registered.
-    'global.enabled' => env('XHGUI_ENABLED', false),
+    'enabled' => env('XHGUI_ENABLED', false),
 
     // This is the configuration for the perftools/php-profiler. See the README for more information.
+    // Note that calling config('xhgui.<key>') will not work for these values.
+    // If you must, you can use config('xhgui')['<key>.<key>'].
     'save.handler' => Xhgui\Profiler\Profiler::SAVER_UPLOAD,
     'save.handler.upload' => [
         'url' => 'http://xhgui/run/import',

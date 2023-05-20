@@ -28,7 +28,7 @@ class ReplaceUrlFactory
      */
     protected static function getReplaceUrlClass()
     {
-        return config('xhgui.profiler.replace_url');
+        return config('xhgui')['profiler.replace_url'];
     }
 
     protected static function guardAgainstInvalidReplaceUrlClass(string $replaceUrlClass): void
