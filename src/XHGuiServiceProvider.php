@@ -16,7 +16,7 @@ class XHGuiServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__ . '/../config/config.php' => config_path('xhgui.php')], 'xhgui-config');
+            $this->publishes([__DIR__ . '/../config/xhgui.php' => config_path('xhgui.php')], 'xhgui-config');
         }
 
         if (!config('xhgui.global.enabled')) {
