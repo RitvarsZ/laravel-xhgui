@@ -4,7 +4,7 @@ namespace Ritvarsz\LaravelXhgui\Support\ReplaceUrl;
 
 use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 
-class DefaultReplaceUrl extends SerializableClosure
+class DefaultReplaceUrl implements SerializableClosure
 {
     public function getClosure(): \Closure
     {

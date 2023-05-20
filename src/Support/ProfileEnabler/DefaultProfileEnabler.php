@@ -7,7 +7,7 @@ use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 /**
  * By default, the profiler is enabled for all requests.
  */
-class DefaultProfileEnabler extends SerializableClosure
+class DefaultProfileEnabler implements SerializableClosure
 {
     public function getClosure(): \Closure
     {

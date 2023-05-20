@@ -35,7 +35,7 @@ In order to customize when the profiler runs, you can replace it with a class th
 This can be usesful to profile only some requests.
 
 ```php
-class CustomProfileEnabler extends SerializableClosure
+class CustomProfileEnabler implements SerializableClosure
 {
     public function getClosure(): \Closure
     {
