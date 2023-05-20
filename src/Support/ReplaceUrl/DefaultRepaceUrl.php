@@ -1,6 +1,6 @@
 <?php
 
-namespace Ritvarsz\LaravelXhgui\Support\SimpleUrl;
+namespace Ritvarsz\LaravelXhgui\Support\ReplaceUrl;
 
 use Laravel\SerializableClosure\SerializableClosure;
 
