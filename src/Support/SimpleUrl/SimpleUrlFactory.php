@@ -3,11 +3,11 @@
 namespace Ritvarsz\LaravelXhgui\Support\SimpleUrl;
 
 use Ritvarsz\LaravelXhgui\Exceptions\InvalidSerializableClosure;
-use Ritvarsz\LaravelXhgui\Support\SerializeableClosure;
+use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 
 class SimpleUrlFactory
 {
-    public static function create(): SerializeableClosure
+    public static function create(): SerializableClosure
     {
         $simpleUrlClass = static::getSimpleUrlClass();
 
@@ -30,7 +30,7 @@ class SimpleUrlFactory
             throw InvalidSerializableClosure::doesntExist($simpleUrlClass);
         }
 
-        if (!is_subclass_of($simpleUrlClass, SerializeableClosure::class)) {
+        if (!is_subclass_of($simpleUrlClass, SerializableClosure::class)) {
             throw InvalidSerializableClosure::doesNotImplementSerializableClosure($simpleUrlClass);
         }
     }

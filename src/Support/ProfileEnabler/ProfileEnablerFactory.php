@@ -3,11 +3,11 @@
 namespace Ritvarsz\LaravelXhgui\Support\ProfileEnabler;
 
 use Ritvarsz\LaravelXhgui\Exceptions\InvalidSerializableClosure;
-use Ritvarsz\LaravelXhgui\Support\SerializeableClosure;
+use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 
 class ProfileEnablerFactory
 {
-    public static function create(): SerializeableClosure
+    public static function create(): SerializableClosure
     {
         $profileEnablerClass = static::getProfileEnablerClass();
 
@@ -27,7 +27,7 @@ class ProfileEnablerFactory
             throw InvalidSerializableClosure::doesntExist($profileEnablerClass);
         }
 
-        if (!is_subclass_of($profileEnablerClass, SerializeableClosure::class)) {
+        if (!is_subclass_of($profileEnablerClass, SerializableClosure::class)) {
             throw InvalidSerializableClosure::doesNotImplementSerializableClosure($profileEnablerClass);
         }
     }

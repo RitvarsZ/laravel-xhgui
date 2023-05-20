@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Ritvarsz\LaravelXhgui\Support\ProfileEnabler\ProfileEnablerFactory;
 use Ritvarsz\LaravelXhgui\Support\ReplaceUrl\ReplaceUrlFactory;
 use Ritvarsz\LaravelXhgui\Support\SimpleUrl\SimpleUrlFactory;
+use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 use Xhgui\Profiler\Profiler;
 use Xhgui\Profiler\Config as ProfilerConfig;
 
@@ -29,7 +30,7 @@ class XHGuiMiddleware
 
         $config['profiler.enable'] = $enabler->getClosure();
         $config['profiler.simple_url'] = $simpleUrl->getClosure();
-        $config['profiler.replace_url'] = is_subclass_of($replaceUrl, SerializeableClosure::class)
+        $config['profiler.replace_url'] = is_subclass_of($replaceUrl, SerializableClosure::class)
             ? $replaceUrl->getClosure()
             : $replaceUrl;
 

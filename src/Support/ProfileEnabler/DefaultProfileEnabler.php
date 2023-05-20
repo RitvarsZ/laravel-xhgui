@@ -2,7 +2,7 @@
 
 namespace Ritvarsz\LaravelXhgui\Support\ProfileEnabler;
 
-use Laravel\SerializableClosure\SerializableClosure;
+use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 
 /**
  * By default, the profiler is enabled for all requests.

@@ -3,12 +3,12 @@
 namespace Ritvarsz\LaravelXhgui\Support\ReplaceUrl;
 
 use Ritvarsz\LaravelXhgui\Exceptions\InvalidSerializableClosure;
-use Ritvarsz\LaravelXhgui\Support\SerializeableClosure;
+use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 
 class ReplaceUrlFactory
 {
     /**
-     * @return SerializeableClosure|null
+     * @return SerializableClosure|null
      */
     public static function create()
     {
@@ -37,7 +37,7 @@ class ReplaceUrlFactory
             throw InvalidSerializableClosure::doesntExist($replaceUrlClass);
         }
 
-        if (!is_subclass_of($replaceUrlClass, SerializeableClosure::class)) {
+        if (!is_subclass_of($replaceUrlClass, SerializableClosure::class)) {
             throw InvalidSerializableClosure::doesNotImplementSerializableClosure($replaceUrlClass);
         }
     }

@@ -2,7 +2,7 @@
 
 namespace Ritvarsz\LaravelXhgui\Support\SimpleUrl;
 
-use Laravel\SerializableClosure\SerializableClosure;
+use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 
 class DefaultSimpleUrl extends SerializableClosure
 {

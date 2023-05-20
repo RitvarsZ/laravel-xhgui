@@ -2,7 +2,7 @@
 
 namespace Ritvarsz\LaravelXhgui\Support;
 
-interface SerializeableClosure
+interface SerializableClosure
 {
     public function getClosure(): \Closure;
 }

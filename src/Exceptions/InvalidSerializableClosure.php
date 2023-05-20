@@ -3,7 +3,7 @@
 namespace Ritvarsz\LaravelXhgui\Exceptions;
 
 use Exception;
-use Ritvarsz\LaravelXhgui\Support\SerializeableClosure;
+use Ritvarsz\LaravelXhgui\Support\SerializableClosure;
 
 class InvalidSerializableClosure extends Exception
 {

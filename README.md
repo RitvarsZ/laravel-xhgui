@@ -31,7 +31,7 @@ So we have implemented a simple class that stores the callback - supported confi
 ```
 
 For example, `DefaultProfileEnabler` enables the profiler on every request.
-In order to customize when the profiler runs, you can replace it with a class that extends `\Ritvarsz\LaravelXhgui\Support\SerializeableClosure`
+In order to customize when the profiler runs, you can replace it with a class that extends `\Ritvarsz\LaravelXhgui\Support\SerializableClosure`
 This can be usesful to profile only some requests.
 
 ```php
