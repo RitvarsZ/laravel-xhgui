@@ -4,8 +4,11 @@ namespace Ritvarsz\LaravelXhgui;
 
 use Closure;
 use Illuminate\Http\Request;
+use Ritvarsz\LaravelXhgui\Support\ProfileEnabler\ProfileEnablerFactory;
+use Ritvarsz\LaravelXhgui\Support\ReplaceUrl\ReplaceUrlFactory;
+use Ritvarsz\LaravelXhgui\Support\SimpleUrl\SimpleUrlFactory;
 use Xhgui\Profiler\Profiler;
-use Xhgui\Profiler\Config;
+use Xhgui\Profiler\Config as ProfilerConfig;
 
 class XHGuiMiddleware
 {
@@ -18,8 +21,20 @@ class XHGuiMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $config = new Config(config('xhgui'));
-        $profiler = new Profiler($config);
+        $config = config('xhgui');
+
+        $enabler = ProfileEnablerFactory::create();
+        $simpleUrl = SimpleUrlFactory::create();
+        $replaceUrl = ReplaceUrlFactory::create();
+
+        $config['profiler.enable'] = $enabler->getClosure();
+        $config['profiler.simple_url'] = $simpleUrl->getClosure();
+        $config['profiler.replace_url'] = is_subclass_of($replaceUrl, SerializeableClosure::class)
+            ? $replaceUrl->getClosure()
+            : $replaceUrl;
+
+        $profilerConfig = new ProfilerConfig($config);
+        $profiler = new Profiler($profilerConfig);
         $profiler->start();
 
         return $next($request);
