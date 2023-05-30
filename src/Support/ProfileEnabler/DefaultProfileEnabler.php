@@ -11,10 +11,12 @@ class DefaultProfileEnabler implements SerializableClosure
     {
         return function () {
             $probablility = config('xhgui.enabler.probablility');
-            $includePatterns = explode(',', config('xhgui.enabler.include')); 
-            $excludePatterns = explode(',', config('xhgui.enabler.exclude')); 
             $requestPath = request()->path();
 
+            $includePatterns = explode(',', config('xhgui.enabler.include')); 
+            $excludePatterns = explode(',', config('xhgui.enabler.exclude')); 
+            $excludePatterns = $excludePatterns === [''] ? null : $excludePatterns;
+            $includePatterns = $includePatterns === [''] ? null : $includePatterns;
 
             if ($probablility < 1) { $probablility = 1; }
 
@@ -24,7 +26,7 @@ class DefaultProfileEnabler implements SerializableClosure
 
             // If current request path matches any of the include patterns, profile the request.
             // Include patterns take precedence over exclude patterns.
-            if ($includePatterns) {
+            if ($includePatterns !== null) {
                 foreach ($includePatterns as $pattern) {
                     if (Str::is($pattern, $requestPath)) {
                         return true;
@@ -35,9 +37,11 @@ class DefaultProfileEnabler implements SerializableClosure
             }
 
             // If current request path matches any of the exclude patterns, do not profile the request.
-            foreach ($excludePatterns as $pattern) {
-                if (Str::is($pattern, $requestPath)) {
-                    return false;
+            if ($excludePatterns !== null) {
+                foreach ($excludePatterns as $pattern) {
+                    if (Str::is($pattern, $requestPath)) {
+                        return false;
+                    }
                 }
             }
 
