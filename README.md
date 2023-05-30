@@ -48,7 +48,7 @@ return [
         // Env var should be a comma-separated list of patterns.
         // If both exclude and include are set, include takes precedence (exclude is ignored).
         // DefaultProfileEnabler uses \Illuminate\Support\Str::is() to match patterns.
-        // Example: XHGUI_ROUTE_EXCLUDE=/ping,/users/*/profile/*
+        // Example: XHGUI_ROUTE_EXCLUDE=api/users/*/profile/*,api/ping
         'include_routes' => env('XHGUI_ROUTE_INCLUDE', ''),
         'exclude_routes' => env('XHGUI_ROUTE_EXCLUDE', ''),
     ],
