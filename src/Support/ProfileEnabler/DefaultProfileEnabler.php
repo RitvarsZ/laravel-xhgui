@@ -13,8 +13,8 @@ class DefaultProfileEnabler implements SerializableClosure
             $probablility = config('xhgui.enabler.probablility');
             $requestPath = request()->path();
 
-            $includePatterns = explode(',', config('xhgui.enabler.include')); 
-            $excludePatterns = explode(',', config('xhgui.enabler.exclude')); 
+            $includePatterns = explode(',', config('xhgui.enabler.include_routes')); 
+            $excludePatterns = explode(',', config('xhgui.enabler.exclude_routes')); 
             $excludePatterns = $excludePatterns === [''] ? null : $excludePatterns;
             $includePatterns = $includePatterns === [''] ? null : $includePatterns;
 
