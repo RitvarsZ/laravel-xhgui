@@ -21,6 +21,17 @@ return [
         'exclude_routes' => env('XHGUI_ROUTE_EXCLUDE', ''),
     ],
 
+    // If you want to clean up profiling data after a certain amount of days
+    // set the appropriate database connection name here (make sure it's configured in config/database.php)
+    // set the results table name and the number of days after which the data should be deleted (0 won't delete).
+    // Setting the connection to null will disable the cleanup.
+    // If using mongoDB, ignore this and @see https://github.com/perftools/xhgui#limiting-mongodb-disk-usage
+    'database' => [
+        'connection' => env('XHGUI_DB_CONNECTION', null),
+        'table_results' => env('XHGUI_TABLE', 'results'),
+        'expire_after_days' => env('XHGUI_EXPIRE_AFTER_DAYS', 0),
+    ],
+
     // This is the configuration for the perftools/php-profiler. See the README for more information.
     // Note that calling config('xhgui.<key>') will not work for these values.
     // If you must, you can use config('xhgui')['<key>.<key>'].
