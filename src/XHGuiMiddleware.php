@@ -22,6 +22,13 @@ class XHGuiMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        self::enableProfiler();
+
+        return $next($request);
+    }
+
+    public static function enableProfiler()
+    {
         $config = config('xhgui');
 
         $enabler = ProfileEnablerFactory::create();
@@ -37,7 +44,5 @@ class XHGuiMiddleware
         $profilerConfig = new ProfilerConfig($config);
         $profiler = new Profiler($profilerConfig);
         $profiler->start();
-
-        return $next($request);
     }
 }

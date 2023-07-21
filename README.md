@@ -93,6 +93,27 @@ return [
 The default profile enabler uses `enabler.probability`, `enabler.exclude` and `enabler.include` config parameters to determine if the current request should be profiled. 
 Feel free to make your own class that implements `\Ritvarsz\LaravelXhgui\Support\SerializableClosure` to override the logic or extend the `DefaultProfileEnabler` to add more constraints.
 
-## Todo:
-- Support for profiling artisan commands.
-- Support for profiling jobs.
+## Profiling artisan commands
+In order to profile an artisan command, it has to use the `\Ritvarsz\LaravelXhgui\Traits\Profilable` trait.
+
+Example:
+```php
+class TestCmd extends Command
+{
+    use \App\Traits\Profilable; // <- use the trait
+
+    protected $signature = 'test:cmd';
+    protected $description = 'Command description';
+
+    public function __construct()
+    {
+        $this->initXhprof(); // <- initialize the profiler in the constructor
+        parent::__construct();
+    }
+
+    public function handle()
+    {
+        /** Do something */
+    }
+}
+```
